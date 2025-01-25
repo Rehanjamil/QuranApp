@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:background="@drawable/bg_rounded_corners"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/add_new_bookmark"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16ssp" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rgBookmarkType"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/rbJuzz"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/rb_selector"
+                    android:layoutDirection="rtl"
+                    android:paddingVertical="@dimen/_5sdp"
+                    android:fontFamily="@font/poppins"
+                    android:textSize="@dimen/_13ssp"
+                    android:gravity="center_vertical"
+                    android:text="Bookmark By Juzz" />
+
+                <RadioButton
+                    android:id="@+id/rbSurah"
+                    android:layout_width="match_parent"
+                    android:paddingVertical="@dimen/_5sdp"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/rb_selector"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center_vertical"
+                    android:layoutDirection="rtl"
+                    android:textSize="@dimen/_13ssp"
+                    android:text="Bookmark By Surah" />
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:gravity="end"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvCancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="end|center_vertical"
+                    android:textSize="@dimen/_13ssp"
+                    android:text="@string/cancel"
+                    android:textAllCaps="true" />
+
+                <TextView
+                    android:id="@+id/tvContinue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_gravity="end"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="end|center_vertical"
+                    android:text="@string/ok"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/_13ssp"
+                    android:textColor="@color/colorPrimary" />
+            </LinearLayout>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </LinearLayout>
+</layout>

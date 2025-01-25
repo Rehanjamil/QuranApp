@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="listItemViewModel"
+            type="com.quran.rabiulqaloob.models.PageSubModel" />
+
+    </data>
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        childFile='@{true}'
+        fileName='@{listItemViewModel.itemNo}'
+        parentPage='@{listItemViewModel.parentPage}'
+        android:layout_width="match_parent"
+        android:scaleX="1.3"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+</layout>

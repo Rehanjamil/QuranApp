@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/player_coordinatorlayout"
+    style="@style/BottomSheetDialogTheme"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:clickable="true"
+    android:fitsSystemWindows="true"
+    android:focusable="true"
+    app:behavior_hideable="false">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_sheet_layout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_player_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@color/makkiStatusColor" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_head_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20.0dip"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:gravity="bottom"
+            android:textColor="@color/white"
+            android:textSize="19.0sp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@id/sub_head_bottom"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <ImageView
+            android:id="@+id/img_head_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_22sdp"
+            android:layout_marginStart="20.0dip"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:adjustViewBounds="true"
+            app:layout_constraintBottom_toTopOf="@id/sub_head_bottom"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:tint="@color/white" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/sub_head_bottom"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="top"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_20sdp"
+            app:layout_constraintEnd_toStartOf="@id/iv_fav"
+            app:layout_constraintStart_toStartOf="@id/tv_head_bottom"
+            app:layout_constraintTop_toBottomOf="@id/tv_head_bottom" />
+
+        <ImageView
+            android:id="@+id/iv_collapse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:padding="@dimen/_6sdp"
+            android:src="@drawable/ic_group_down"
+            app:layout_constraintBottom_toBottomOf="@id/iv_fav"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_fav"
+            app:tint="@color/white" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_fav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_bookmark_player"
+            app:layout_constraintEnd_toStartOf="@id/iv_collapse"
+            app:layout_constraintTop_toTopOf="@id/tv_head_bottom" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btn_download"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_player_cloud_download"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/iv_fav"
+            app:layout_constraintEnd_toStartOf="@id/iv_fav"
+            app:layout_constraintTop_toTopOf="@id/iv_fav" />
+
+        <RelativeLayout
+            android:id="@+id/ll_progress_download"
+            android:layout_width="0.0dip"
+            android:layout_height="0.0dip"
+            android:padding="@dimen/_6sdp"
+            app:layout_constraintBottom_toBottomOf="@id/btn_download"
+            app:layout_constraintEnd_toEndOf="@id/btn_download"
+            app:layout_constraintStart_toStartOf="@id/btn_download"
+            app:layout_constraintTop_toTopOf="@id/btn_download">
+
+<!--            <com.google.android.material.progressindicator.CircularProgressIndicator-->
+<!--                android:id="@+id/progressbar_download"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:indeterminateTint="#ffd1ac44"-->
+<!--                android:progress="0"-->
+<!--                app:direction="clockwise"-->
+<!--                app:drawDot="false"-->
+<!--                app:enableProgressAnimation="false"-->
+<!--                app:progressBackgroundColor="@color/white"-->
+<!--                app:progressBackgroundStrokeWidth="2.0dip"-->
+<!--                app:progressColor="@color/desert"-->
+<!--                app:progressStrokeWidth="2.0dip"-->
+<!--                app:startAngle="270"-->
+<!--                app:textColor="#00ffffff" />-->
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginStart="@dimen/_3sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginEnd="@dimen/_3sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                app:lottie_autoPlay="true"
+                app:lottie_colorFilter="@color/white"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/anim_downloading" />
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view_download_blocker"
+            android:layout_width="0.0dip"
+            android:layout_height="0.0dip"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="@id/btn_download"
+            app:layout_constraintEnd_toEndOf="@id/btn_download"
+            app:layout_constraintStart_toStartOf="@id/btn_download"
+            app:layout_constraintTop_toTopOf="@id/btn_download" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@id/bottom"
+            android:layout_width="fill_parent"
+            android:layout_height="70.0dip"
+            android:layout_marginBottom="@dimen/_30sdp"
+            android:gravity="center_horizontal"
+            android:paddingStart="10.0dip"
+            android:paddingEnd="10.0dip"
+            app:layout_constraintBottom_toTopOf="@id/seeklayout_bottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btn_repeat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_repeat_off"
+                app:layout_constraintBottom_toBottomOf="@id/play_bottom"
+                app:layout_constraintEnd_toStartOf="@id/prev"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/play_bottom" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/prev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_group_previous"
+                app:layout_constraintBottom_toBottomOf="@id/play_bottom"
+                app:layout_constraintEnd_toStartOf="@id/play_bottom"
+                app:layout_constraintStart_toEndOf="@id/btn_repeat"
+                app:layout_constraintTop_toTopOf="@id/play_bottom" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/play_bottom"
+                android:layout_width="0.0dip"
+                android:layout_height="0.0dip"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_play_bottom"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@id/next"
+                app:layout_constraintStart_toEndOf="@id/prev"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/progress_bottom"
+                android:layout_width="0.0dip"
+                android:layout_height="0.0dip"
+                android:background="@drawable/d_oval_white"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="@dimen/_14sdp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@id/next"
+                app:layout_constraintStart_toEndOf="@id/prev"
+                app:layout_constraintTop_toTopOf="parent"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/progress_data" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_group_next"
+                app:layout_constraintBottom_toBottomOf="@id/play_bottom"
+                app:layout_constraintEnd_toStartOf="@id/iv_playlist"
+                app:layout_constraintStart_toEndOf="@id/play_bottom"
+                app:layout_constraintTop_toTopOf="@id/play_bottom" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_playlist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_player_playlist"
+                app:layout_constraintBottom_toBottomOf="@id/play_bottom"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/next"
+                app:layout_constraintTop_toTopOf="@id/play_bottom" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/progress_text"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="9.0sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/progress_main"
+                app:layout_constraintEnd_toEndOf="@id/progress_main"
+                app:layout_constraintStart_toStartOf="@id/progress_main"
+                app:layout_constraintTop_toTopOf="@id/progress_main" />
+
+            <ProgressBar
+                android:id="@+id/progress_main"
+                style="?android:progressBarStyleHorizontal"
+                android:layout_width="70.0dip"
+                android:layout_height="70.0dip"
+                android:layout_marginStart="5.0dip"
+                android:indeterminateOnly="false"
+                android:max="100"
+                android:padding="11.0dip"
+                android:progress="2"
+                android:progressDrawable="@drawable/ring_style"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/next"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <include
+            android:id="@+id/seeklayout_bottom"
+            layout="@layout/seek2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10.0dip"
+            android:layout_marginEnd="10.0dip"
+            android:layout_marginBottom="@dimen/_40sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

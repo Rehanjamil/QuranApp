@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="listItemViewModel"
+            type="com.quran.rabiulqaloob.models.Juzz" />
+
+        <import type="com.quran.rabiulqaloob.R" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick='@{(view) -> listItemViewModel.onItemClickListener.onClick(view, listItemViewModel.adapterPosition, listItemViewModel)}'
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text='@{listItemViewModel.juzzIndex + "." + listItemViewModel.juzzName}'
+                    android:textColor="@color/goldFinger"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="hello" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    resourceId='@{R.string.page_no}'
+                    text='@{listItemViewModel.pageNo}'
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_9ssp"
+                    android:visibility='@{listItemViewModel.bookMarkType ? View.GONE : View.VISIBLE}'
+                    tools:text="@string/page_no" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:text='@{listItemViewModel.juzzArabic}'
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_9ssp"
+                    android:visibility='@{listItemViewModel.bookMarkType ? View.VISIBLE : View.GONE}'
+                    tools:text="@string/page_no" />
+
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center_vertical"
+                android:fontFamily="@font/al_qalam_quran_majeed"
+                android:text='@{listItemViewModel.juzzArabic}'
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13ssp"
+                android:visibility='@{listItemViewModel.bookMarkType ? View.GONE : View.VISIBLE}'
+                tools:text="hello" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                selected='@{listItemViewModel.bookMarked}'
+                android:layout_width="wrap_content"
+                android:id="@+id/tvBookmark"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center_vertical"
+                android:fontFamily="@font/poppins"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:paddingVertical="@dimen/_2sdp"
+                android:background="@drawable/bookmark_selector"
+                android:drawableStart="@drawable/ic_book"
+                android:drawableTint="@color/bookmark_selector"
+                android:drawablePadding="@dimen/_3sdp"
+                android:onClick='@{(view) -> listItemViewModel.changeBookMarkState(view)}'
+                android:visibility='@{listItemViewModel.bookMarkType ? View.VISIBLE : View.GONE}'
+                android:text="@string/title_bookmark"
+                android:textColor="@color/bookmark_selector"
+                android:textSize="@dimen/_11ssp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:background="#1A000000" />
+    </LinearLayout>
+</layout>

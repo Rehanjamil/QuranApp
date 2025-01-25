@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.MainActivity">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/mobile_nav_graph" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="20.0dip"
+        app:cardElevation="20.0dip"
+        android:id="@+id/cvPlayer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cv_control1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:paddingBottom="@dimen/_5sdp">
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                android:id="@+id/clp"
+                style="?android:progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                android:progressBackgroundTint="#ff5dc560"
+                android:progressDrawable="@drawable/progress_bar"
+                android:progressTint="#ff16811a"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <SeekBar
+                android:id="@+id/seekbar_progress"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_15sdp"
+                android:background="@null"
+                android:max="100"
+                android:paddingVertical="@dimen/_5sdp"
+                android:paddingStart="0.0dip"
+                android:paddingEnd="0.0dip"
+                android:progress="0"
+                android:progressBackgroundTint="#ff5dc560"
+                android:progressTint="#ff16811a"
+                android:theme="@style/SeekBar"
+                android:thumb="@drawable/seek_thumb"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_name_title1"
+                android:layout_width="100.0dip"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:text="1. Fatihah"
+                android:textColor="@color/black"
+                android:textSize="14.0sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/iv_hide1"
+                app:layout_constraintTop_toTopOf="@+id/iv_hide1" />
+
+            <TextView
+                android:id="@+id/reciter1"
+                android:layout_width="wrap_content"
+                android:layout_height="0.0dip"
+                android:ellipsize="marquee"
+                android:fontFamily="sans-serif"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:text="@string/al_sudais"
+                android:textColor="@color/gray_darker"
+                android:textSize="13.0sp"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_hide1"
+                app:layout_constraintEnd_toEndOf="@+id/tv_name_title1"
+                app:layout_constraintStart_toStartOf="@+id/tv_name_title1"
+                app:layout_constraintTop_toBottomOf="@id/tv_name_title1" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/buttonPlayPause1"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_player_selector"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/ll_starBook1"
+                app:layout_constraintTop_toBottomOf="@id/seekbar_progress" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/buttonNext1"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:src="@drawable/ic_baseline_skip_next_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/buttonPlayPause1"
+                app:layout_constraintTop_toBottomOf="@id/seekbar_progress"
+                app:tint="@color/black" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_starBook1"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/seekbar_progress">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btn_playlist"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_playlist_bottom" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_hide1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="12.0dip"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/seekbar_progress"
+                app:srcCompat="@drawable/ic_path_cancel" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.quran.rabiulqaloob.R" />
+
+        <variable
+            name="dateAdjustmentClick"
+            type="com.quran.rabiulqaloob.generics.GenericAdapter.OnItemClickListener" />
+
+        <variable
+            name="dateAdjustmentList"
+            type="java.util.ArrayList&lt;com.quran.rabiulqaloob.models.LanguageModel&gt;" />
+
+        <variable
+            name="selectedAdjustment"
+            type="java.lang.String" />
+
+        <variable
+            name="isDateAdjustmentExpanded"
+            type="java.lang.Boolean" />
+
+        <variable
+            name="calculationMethodClick"
+            type="com.quran.rabiulqaloob.generics.GenericAdapter.OnItemClickListener" />
+
+        <variable
+            name="calculationMethodList"
+            type="java.util.ArrayList&lt;com.quran.rabiulqaloob.models.LanguageModel&gt;" />
+
+        <variable
+            name="selectedCalculationMethod"
+            type="java.lang.String" />
+
+        <variable
+            name="isCalculationMethodExpanded"
+            type="java.lang.Boolean" />
+
+        <variable
+            name="timeFormatClick"
+            type="com.quran.rabiulqaloob.generics.GenericAdapter.OnItemClickListener" />
+
+        <variable
+            name="timeFormatList"
+            type="java.util.ArrayList&lt;com.quran.rabiulqaloob.models.LanguageModel&gt;" />
+
+        <variable
+            name="selectedTimeFormat"
+            type="java.lang.String" />
+
+        <variable
+            name="isTimeFormatExpanded"
+            type="java.lang.Boolean" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:background="@color/colorPrimary">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivArrowBack"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:padding="@dimen/_8sdp"
+            android:src="@drawable/ic_back_arrow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center_vertical"
+            android:text="@string/title_prayer_settings"
+            android:textColor="@color/white"
+            android:textAlignment="viewStart"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintBottom_toBottomOf="@id/ivArrowBack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivArrowBack"
+            app:layout_constraintTop_toTopOf="@id/ivArrowBack" />
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/bg_top_rounded_corner"
+            android:backgroundTint="@color/baby_powder"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivArrowBack">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingBottom="@dimen/_10sdp">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvHijri"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:minHeight="@dimen/_60sdp"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/clHijri"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tvHijriAdjustmentTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:fontFamily="@font/poppins_bold"
+                                android:paddingHorizontal="@dimen/_10sdp"
+                                android:text="Hijri Date Adjustment"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_13ssp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:paddingHorizontal="@dimen/_10sdp"
+                                android:paddingBottom="@dimen/_5sdp"
+                                android:text='@{selectedAdjustment, default="None"}'
+                                android:textSize="@dimen/_9ssp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/tvHijriAdjustmentTitle" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/ivHijriDateAdjustment"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_marginEnd="@dimen/_15sdp"
+                                android:rotation='@{isDateAdjustmentExpanded ? 180 : 0}'
+                                android:src="@drawable/ic_arrow_drop_down"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            itemViewModels='@{dateAdjustmentList}'
+                            layout='@{R.layout.language_item_layout}'
+                            onItemClick='@{dateAdjustmentClick}'
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="@dimen/_10sdp"
+                            android:paddingBottom="@dimen/_10sdp"
+                            android:visibility='@{isDateAdjustmentExpanded ? View.VISIBLE : View.GONE}'
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:layout_constraintTop_toBottomOf="@id/clHijri" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvCalculationMethod"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:minHeight="@dimen/_60sdp"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:layout_constraintTop_toBottomOf="@id/cvHijri">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/clCalculationMethod"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tvCalculationMethodTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:fontFamily="@font/poppins_bold"
+                                android:paddingHorizontal="@dimen/_10sdp"
+                                android:text="Select Calculation Method"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_13ssp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:paddingHorizontal="@dimen/_10sdp"
+                                android:paddingBottom="@dimen/_5sdp"
+                                android:text='@{selectedCalculationMethod, default="None"}'
+                                android:textSize="@dimen/_9ssp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/tvCalculationMethodTitle" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/ivCalculationMethod"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_marginEnd="@dimen/_15sdp"
+                                android:rotation='@{isCalculationMethodExpanded ? 180 : 0}'
+                                android:src="@drawable/ic_arrow_drop_down"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            itemViewModels='@{calculationMethodList}'
+                            layout='@{R.layout.language_item_layout}'
+                            onItemClick='@{calculationMethodClick}'
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="@dimen/_10sdp"
+                            android:paddingBottom="@dimen/_10sdp"
+                            android:visibility='@{isCalculationMethodExpanded ? View.VISIBLE : View.GONE}'
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:layout_constraintTop_toBottomOf="@id/clCalculationMethod" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvTimeFormat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:minHeight="@dimen/_60sdp"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:layout_constraintTop_toBottomOf="@id/cvCalculationMethod">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/clTimeFormat"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tvTimeFormatTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:fontFamily="@font/poppins_bold"
+                                android:paddingHorizontal="@dimen/_10sdp"
+                                android:text="Format Time"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_13ssp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:paddingHorizontal="@dimen/_10sdp"
+                                android:paddingBottom="@dimen/_5sdp"
+                                android:text='@{selectedTimeFormat, default="None"}'
+                                android:textSize="@dimen/_9ssp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/tvTimeFormatTitle" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/ivTimeFormat"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_marginEnd="@dimen/_15sdp"
+                                android:rotation='@{isTimeFormatExpanded ? 180 : 0}'
+                                android:src="@drawable/ic_arrow_drop_down"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            itemViewModels='@{timeFormatList}'
+                            layout='@{R.layout.language_item_layout}'
+                            onItemClick='@{timeFormatClick}'
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="@dimen/_10sdp"
+                            android:paddingBottom="@dimen/_10sdp"
+                            android:visibility='@{isTimeFormatExpanded ? View.VISIBLE : View.GONE}'
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:layout_constraintTop_toBottomOf="@id/clTimeFormat" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

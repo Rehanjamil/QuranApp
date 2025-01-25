@@ -1,0 +1,727 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="isFajarNotificationEnabled"
+            type="Boolean" />
+
+        <variable
+            name="isSunriseNotificationEnabled"
+            type="Boolean" />
+
+        <variable
+            name="isJumaNotificationEnabled"
+            type="Boolean" />
+
+        <variable
+            name="isAsrNotificationEnabled"
+            type="Boolean" />
+
+        <variable
+            name="isMaghribNotificationEnabled"
+            type="Boolean" />
+
+        <variable
+            name="isIshaNotificationEnabled"
+            type="Boolean" />
+
+        <import type="com.quran.rabiulqaloob.R" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivArrowBack"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:padding="@dimen/_8sdp"
+            android:src="@drawable/ic_back_arrow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center_vertical"
+            android:textAlignment="viewStart"
+            android:text="@string/title_prayer_times"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintBottom_toBottomOf="@id/ivArrowBack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivArrowBack"
+            app:layout_constraintTop_toTopOf="@id/ivArrowBack" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSettings"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_23sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@drawable/bookmark_selector"
+            android:drawableStart="@drawable/ic_settings"
+            android:drawablePadding="@dimen/_5sdp"
+            android:drawableTint="@color/white"
+            android:fontFamily="@font/poppins"
+            android:includeFontPadding="false"
+            android:paddingHorizontal="@dimen/_8sdp"
+            android:paddingVertical="@dimen/_5sdp"
+            android:text="@string/settings"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_9ssp"
+            app:layout_constraintBottom_toBottomOf="@id/ivArrowBack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ivArrowBack" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivLocation"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_location"
+            app:layout_constraintStart_toStartOf="@id/ivArrowBack"
+            app:layout_constraintTop_toBottomOf="@id/ivArrowBack" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvLocation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:minHeight="@dimen/_30sdp"
+            android:fontFamily="@font/poppins"
+            android:maxLines="2"
+            android:text="dskcmkdmcksdmcdsm \nkdvmkmvkfvkdmvdkvk\n dmskckdscmmdsckc\nskvmsmvksmvkmvkmfdmvfkdvkdfmvfdv"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_11ssp"
+            app:layout_constraintEnd_toStartOf="@id/ivRefreshLocation"
+            app:layout_constraintStart_toEndOf="@id/ivLocation"
+            app:layout_constraintTop_toTopOf="@id/ivLocation" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/br"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="tvLocation, ivRefreshLocation, ivLocation" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvDateDetails"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_marginTop="@dimen/_7sdp"
+            app:cardBackgroundColor="@color/goldFinger"
+            app:cardCornerRadius="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="@id/ivRefreshLocation"
+            app:layout_constraintStart_toStartOf="@id/ivLocation"
+            app:layout_constraintTop_toBottomOf="@id/br">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivMinus"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:rotation="90"
+                    android:src="@drawable/ic_circle_arrow"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvHijriDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center_horizontal"
+                    android:text="25, Rabi ul Thani 1445 AH"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintEnd_toStartOf="@id/ivPlus"
+                    app:layout_constraintStart_toEndOf="@id/ivMinus"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center_horizontal"
+                    android:text="25, Rabi ul Thani 1445 AH"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_9ssp"
+                    app:layout_constraintEnd_toStartOf="@id/ivPlus"
+                    app:layout_constraintStart_toEndOf="@id/ivMinus"
+                    app:layout_constraintTop_toBottomOf="@id/tvHijriDate" />
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivPlus"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:rotation="270"
+                    android:src="@drawable/ic_circle_arrow"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivRefreshLocation"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_refresh"
+            android:tint="@color/white"
+            app:layout_constraintEnd_toEndOf="@id/tvSettings"
+            app:layout_constraintTop_toBottomOf="@id/ivArrowBack" />
+
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:paddingVertical="@dimen/_3sdp"
+            app:layout_constraintEnd_toEndOf="@id/cvDateDetails"
+            app:layout_constraintStart_toStartOf="@id/cvDateDetails"
+            app:layout_constraintTop_toBottomOf="@id/cvDateDetails">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sdp"
+                app:cardBackgroundColor="@color/baby_powder"
+                app:cardCornerRadius="@dimen/_10sdp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clTimes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvPrayerTimeRemaining"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_timer"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:fontFamily="@font/poppins"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:paddingVertical="@dimen/_5sdp"
+                        android:text="Fajr prayer in 7hr 35m 15s"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/_10ssp"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/viewSeparator"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_2sdp"
+                        android:background="@color/gray"
+                        app:layout_constraintTop_toBottomOf="@id/tvPrayerTimeRemaining" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clPrayerTimes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/viewSeparator">
+
+                        <View
+                            android:id="@+id/viewCurrentFajr"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:alpha="0.6"
+                            android:background="@drawable/gradient_shape"
+                            app:layout_constraintBottom_toBottomOf="@id/clFajrTime"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/clFajrTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/_15sdp"
+                            android:paddingVertical="@dimen/_5sdp"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tvFajrTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_medium"
+                                android:text="Fajr"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12ssp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tvFajarTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:fontFamily="@font/poppins_medium"
+                                android:text="06:30 pm"
+                                android:textSize="@dimen/_9ssp"
+                                app:layout_constraintBottom_toTopOf="@id/viewFajrSeparator"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/tvFajrTitle" />
+
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/ivFajarSettings"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:padding="@dimen/_8sdp"
+                                android:src="@drawable/ic_settings"
+                                android:tint="@color/colorPrimary"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/ivFajrNotification"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:padding="@dimen/_8sdp"
+                                android:src="@drawable/ic_notify"
+                                android:tint='@{isFajarNotificationEnabled ? @color/colorPrimary : @color/gray}'
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@id/ivFajarSettings"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <View
+                                android:id="@+id/viewFajrSeparator"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_1sdp"
+                                android:alpha="0.5"
+                                android:background="@color/gray"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/tvFajarTime" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        <View
+                            android:id="@+id/viewCurrentSunrise"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:alpha="0.6"
+                            android:background="@drawable/gradient_shape"
+                            app:layout_constraintBottom_toBottomOf="@id/clSunriseTime"
+                            app:layout_constraintTop_toTopOf="@id/clSunriseTime" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/clSunriseTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/_15sdp"
+                            android:paddingVertical="@dimen/_5sdp"
+                            app:layout_constraintTop_toBottomOf="@id/clFajrTime">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tvSunriseTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_medium"
+                                android:text="Sunrise"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12ssp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tvSunriseTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:fontFamily="@font/poppins_medium"
+                                android:text="06:30 pm"
+                                android:textSize="@dimen/_9ssp"
+                                app:layout_constraintBottom_toTopOf="@id/viewSunriseSeparator"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/tvSunriseTitle" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/ivSunriseNotification"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:padding="@dimen/_8sdp"
+                                android:src="@drawable/ic_notify"
+                                android:tint='@{isSunriseNotificationEnabled ? @color/colorPrimary : @color/gray}'
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@id/ivSunriseSettings"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/ivSunriseSettings"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:padding="@dimen/_8sdp"
+                                android:src="@drawable/ic_settings"
+                                android:tint="@color/colorPrimary"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <View
+                                android:id="@+id/viewSunriseSeparator"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_1sdp"
+                                android:alpha="0.5"
+                                android:background="@color/gray"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/tvSunriseTime" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <View
+                            android:id="@+id/viewCurrentJuma"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:alpha="0.6"
+                            android:background="@drawable/gradient_shape"
+                            app:layout_constraintBottom_toBottomOf="@id/clJumaTime"
+                            app:layout_constraintTop_toTopOf="@id/clJumaTime" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/clJumaTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/_15sdp"
+                            android:paddingVertical="@dimen/_5sdp"
+                            app:layout_constraintTop_toBottomOf="@id/clSunriseTime">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tvJumaTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_medium"
+                                android:text="Juma"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12ssp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tvJumaTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:fontFamily="@font/poppins_medium"
+                                android:text="06:30 pm"
+                                android:textSize="@dimen/_9ssp"
+                                app:layout_constraintBottom_toTopOf="@id/viewJumaSeparator"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/tvJumaTitle" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/ivJumaNotification"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:padding="@dimen/_8sdp"
+                                android:src="@drawable/ic_notify"
+                                android:tint='@{isJumaNotificationEnabled ? @color/colorPrimary : @color/gray}'
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@id/ivJumaSettings"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/ivJumaSettings"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:padding="@dimen/_8sdp"
+                                android:src="@drawable/ic_settings"
+                                android:tint="@color/colorPrimary"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <View
+                                android:id="@+id/viewJumaSeparator"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_1sdp"
+                                android:alpha="0.5"
+                                android:background="@color/gray"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/tvJumaTime" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <View
+                            android:id="@+id/viewCurrentAsr"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:alpha="0.6"
+                            android:background="@drawable/gradient_shape"
+                            app:layout_constraintBottom_toBottomOf="@id/clAsrTime"
+                            app:layout_constraintTop_toTopOf="@id/clAsrTime" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/clAsrTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/_15sdp"
+                            android:paddingVertical="@dimen/_5sdp"
+                            app:layout_constraintTop_toBottomOf="@id/clJumaTime">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tvAsrTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_medium"
+                                android:text="Asr"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12ssp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tvAsrTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:fontFamily="@font/poppins_medium"
+                                android:text="06:30 pm"
+                                android:textSize="@dimen/_9ssp"
+                                app:layout_constraintBottom_toTopOf="@id/viewAsrSeparator"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/tvAsrTitle" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/ivAsrNotification"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:padding="@dimen/_8sdp"
+                                android:src="@drawable/ic_notify"
+                                android:tint='@{isAsrNotificationEnabled ? @color/colorPrimary : @color/gray}'
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@id/ivAsrSettings"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/ivAsrSettings"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:padding="@dimen/_8sdp"
+                                android:src="@drawable/ic_settings"
+                                android:tint="@color/colorPrimary"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <View
+                                android:id="@+id/viewAsrSeparator"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_1sdp"
+                                android:alpha="0.5"
+                                android:background="@color/gray"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/tvAsrTime" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <View
+                            android:id="@+id/viewCurrentMaghrib"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:alpha="0.6"
+                            android:background="@drawable/gradient_shape"
+                            app:layout_constraintBottom_toBottomOf="@id/clMaghribTime"
+                            app:layout_constraintTop_toTopOf="@id/clMaghribTime" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/clMaghribTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/_15sdp"
+                            android:paddingVertical="@dimen/_5sdp"
+                            app:layout_constraintTop_toBottomOf="@id/clAsrTime">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tvMaghribTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_medium"
+                                android:text="Maghrib"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12ssp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tvMaghribTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:fontFamily="@font/poppins_medium"
+                                android:text="06:30 pm"
+                                android:textSize="@dimen/_9ssp"
+                                app:layout_constraintBottom_toTopOf="@id/viewMaghribSeparator"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/tvMaghribTitle" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/ivMaghribNotification"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:padding="@dimen/_8sdp"
+                                android:src="@drawable/ic_notify"
+                                android:tint='@{isMaghribNotificationEnabled ? @color/colorPrimary : @color/gray}'
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@id/ivMaghribSettings"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/ivMaghribSettings"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:padding="@dimen/_8sdp"
+                                android:src="@drawable/ic_settings"
+                                android:tint="@color/colorPrimary"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <View
+                                android:id="@+id/viewMaghribSeparator"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_1sdp"
+                                android:alpha="0.5"
+                                android:background="@color/gray"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/tvMaghribTime" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <View
+                            android:id="@+id/viewCurrentIsha"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:alpha="0.6"
+                            android:background="@drawable/gradient_shape"
+                            app:layout_constraintBottom_toBottomOf="@id/clIshaTime"
+                            app:layout_constraintTop_toTopOf="@id/clIshaTime" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/clIshaTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/_15sdp"
+                            android:paddingVertical="@dimen/_5sdp"
+                            app:layout_constraintTop_toBottomOf="@id/clMaghribTime">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tvIshaTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_medium"
+                                android:text="Isha"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12ssp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tvIshaTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/_10sdp"
+                                android:fontFamily="@font/poppins_medium"
+                                android:text="06:30 pm"
+                                android:textSize="@dimen/_9ssp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/tvIshaTitle" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/ivIshaNotification"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:padding="@dimen/_8sdp"
+                                android:src="@drawable/ic_notify"
+                                android:tint='@{isIshaNotificationEnabled ? @color/colorPrimary : @color/gray}'
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@id/ivIshaSettings"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/ivIshaSettings"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:padding="@dimen/_8sdp"
+                                android:src="@drawable/ic_settings"
+                                android:tint="@color/colorPrimary"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <View
+                        android:id="@+id/viewMethodSeparator"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_2sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@color/gray"
+                        app:layout_constraintTop_toBottomOf="@id/clPrayerTimes" />
+
+                    <TextView
+                        android:id="@+id/tvMethod"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:text="Based on: Muslim World League\nGMT+05:00 Times may vary"
+                        android:textSize="@dimen/_11ssp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/tvContinue"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/viewMethodSeparator" />
+
+                    <TextView
+                        android:id="@+id/tvContinue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_gravity="end"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:fontFamily="@font/poppins"
+                        android:gravity="end|center_vertical"
+                        android:text="Change"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/_13ssp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/viewMethodSeparator" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_nav_graph"
+    app:startDestination="@id/splashFragment">
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.quran.rabiulqaloob.ui.fragments.SplashFragment"
+        android:label="SplashFragment"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_languageSelectionDialog"
+            app:destination="@id/languageSelectionDialog" />
+        <action
+            android:id="@+id/action_splashFragment_to_downloadingDialog"
+            app:destination="@id/downloadingDialog" />
+        <action
+            android:id="@+id/action_splashFragment_to_downloadRequiredDialog"
+            app:destination="@id/downloadRequiredDialog" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.quran.rabiulqaloob.ui.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_surahListingFragment"
+            app:destination="@id/surahListingFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_juzzListingFragment"
+            app:destination="@id/juzzListingFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_bookmarkListingFragment"
+            app:destination="@id/bookmarkListingFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_readerFragment"
+            app:destination="@id/readerFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_gotoPageDialog"
+            app:destination="@id/gotoPageDialog" />
+        <action
+            android:id="@+id/action_homeFragment_to_prayerTimesFragment"
+            app:destination="@id/prayerTimesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_settingsBottomSheet"
+            app:destination="@id/settingsBottomSheet" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/languageSelectionDialog"
+        android:name="com.quran.rabiulqaloob.ui.dialogs.LanguageSelectionDialog"
+        android:label="fragment_language_selection_dialog"
+        tools:layout="@layout/dialog_language_selection">
+        <action
+            android:id="@+id/action_languageSelectionDialog_to_downloadRequiredDialog"
+            app:destination="@id/downloadRequiredDialog"
+            app:popUpTo="@id/languageSelectionDialog"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="isLanguageUpdate"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </dialog>
+    <dialog
+        android:id="@+id/downloadingDialog"
+        android:name="com.quran.rabiulqaloob.ui.dialogs.DownloadingDialog"
+        android:label="DownloadingDialog"
+        tools:layout="@layout/downloading_dialog">
+        <action
+            android:id="@+id/action_downloadingDialog_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </dialog>
+    <dialog
+        android:id="@+id/downloadRequiredDialog"
+        android:name="com.quran.rabiulqaloob.ui.dialogs.DownloadRequiredDialog"
+        android:label="DownloadRequiredDialog"
+        tools:layout="@layout/dialog_download_required">
+        <action
+            android:id="@+id/action_downloadRequiredDialog_to_downloadingDialog"
+            app:destination="@id/downloadingDialog"
+            app:popUpTo="@id/downloadRequiredDialog"
+            app:popUpToInclusive="true" />
+    </dialog>
+    <fragment
+        android:id="@+id/juzzListingFragment"
+        android:name="com.quran.rabiulqaloob.ui.fragments.JuzzListingFragment"
+        android:label="fragment_juzz_listing"
+        tools:layout="@layout/fragment_juzz_listing">
+        <action
+            android:id="@+id/action_juzzListingFragment_to_readerFragment"
+            app:destination="@id/readerFragment" />
+        <argument
+            android:name="type"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/surahListingFragment"
+        android:name="com.quran.rabiulqaloob.ui.fragments.SurahListingFragment"
+        android:label="fragment_surah_listing"
+        tools:layout="@layout/fragment_surah_listing">
+        <argument
+            android:name="type"
+            android:defaultValue="0"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_surahListingFragment_to_readerFragment"
+            app:destination="@id/readerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookmarkListingFragment"
+        android:name="com.quran.rabiulqaloob.ui.fragments.BookmarkListingFragment"
+        android:label="fragment_bookmark_listing"
+        tools:layout="@layout/fragment_bookmark_listing">
+        <action
+            android:id="@+id/action_bookmarkListingFragment_to_readerFragment"
+            app:destination="@id/readerFragment" />
+        <action
+            android:id="@+id/action_bookmarkListingFragment_to_bookmarkTypeSelectionDialog"
+            app:destination="@id/bookmarkTypeSelectionDialog" />
+    </fragment>
+    <fragment
+        android:id="@+id/readerFragment"
+        android:name="com.quran.rabiulqaloob.ui.ReaderFragment"
+        android:label="ReaderFragment"
+        tools:layout="@layout/fragment_reader">
+        <argument
+            android:name="position"
+            android:defaultValue="0"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_readerFragment_to_createBookmarkDialog"
+            app:destination="@id/createBookmarkDialog" />
+    </fragment>
+    <dialog
+        android:id="@+id/gotoPageDialog"
+        android:name="com.quran.rabiulqaloob.ui.dialogs.GotoPageDialog"
+        android:label="GotoPageDialog">
+        <action
+            android:id="@+id/action_gotoPageDialog_to_readerFragment"
+            app:destination="@id/readerFragment"
+            app:popUpTo="@id/homeFragment" />
+    </dialog>
+    <dialog
+        android:id="@+id/bookmarkTypeSelectionDialog"
+        android:name="com.quran.rabiulqaloob.ui.dialogs.BookmarkTypeSelectionDialog"
+        android:label="BookmarkTypeSelectionDialog">
+        <action
+            android:id="@+id/action_bookmarkTypeSelectionDialog_to_surahListingFragment"
+            app:destination="@id/surahListingFragment"
+            app:popUpTo="@id/bookmarkListingFragment" />
+        <action
+            android:id="@+id/action_bookmarkTypeSelectionDialog_to_juzzListingFragment"
+            app:destination="@id/juzzListingFragment"
+            app:popUpTo="@id/bookmarkListingFragment" />
+    </dialog>
+    <fragment
+        android:id="@+id/prayerTimesFragment"
+        android:name="com.quran.rabiulqaloob.ui.fragments.PrayerTimesFragment"
+        android:label="PrayerTimesFragment">
+        <action
+            android:id="@+id/action_prayerTimesFragment_to_prayerSettingsFragment"
+            app:destination="@id/prayerSettingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/prayerSettingsFragment"
+        android:name="com.quran.rabiulqaloob.ui.fragments.PrayerSettingsFragment"
+        android:label="fragment_prayer_settings"
+        tools:layout="@layout/fragment_prayer_settings" />
+
+    <dialog
+        android:id="@+id/createBookmarkDialog"
+        android:name="com.quran.rabiulqaloob.ui.dialogs.CreateBookmarkDialog"
+        android:label="CreateBookmarkDialog">
+        <argument
+            android:name="pageModel"
+            app:argType="com.quran.rabiulqaloob.models.PageModel" />
+    </dialog>
+    <dialog
+        android:id="@+id/settingsBottomSheet"
+        android:name="com.quran.rabiulqaloob.ui.dialogs.SettingsBottomSheet"
+        android:label="SettingsBottomSheet"
+        tools:layout="@layout/bottom_sheet_settings">
+        <action
+            android:id="@+id/action_settingsBottomSheet_to_languageSelectionDialog"
+            app:destination="@id/languageSelectionDialog"
+            app:popUpTo="@id/settingsBottomSheet"
+            app:popUpToInclusive="true" />
+    </dialog>
+
+
+</navigation>
